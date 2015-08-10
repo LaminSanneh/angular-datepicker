@@ -19,7 +19,11 @@ angular.module('angular-datepicker', [])
                     }
 
                     if (scope.$$phase || scope.$root.$$phase) // we are coming from $watch or link setup
-                                             return;                    
+                                             return;       
+
+									  if(!element.pickadate('picker')){
+											return;
+										}             
                     var select = element.pickadate('picker').get('select'); // selected date
 
                     if (select) {
@@ -100,10 +104,7 @@ angular.module('angular-datepicker', [])
                     }
 
                     if (scope.$$phase || scope.$root.$$phase) // we are coming from $watch or link setup
-                        return;       
-										if(!element.pickatime('picker')){
-											return;
-										}             
+                        return;                    
                     var select = element.pickatime('picker').get('select'); // selected date
 
                     if (select) {
