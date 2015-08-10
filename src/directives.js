@@ -21,8 +21,8 @@ angular.module('angular-datepicker', [])
                     if (scope.$$phase || scope.$root.$$phase) // we are coming from $watch or link setup
                                              return;                    
                     var select = element.pickadate('picker').get('select'); // selected date
-                    
-                    if (select) {                    
+
+                    if (select) {
                         scope.$apply(function() {                        
                             if (e.hasOwnProperty('clear')) {                            
                                 scope.pickADate = null;                            
@@ -100,10 +100,13 @@ angular.module('angular-datepicker', [])
                     }
 
                     if (scope.$$phase || scope.$root.$$phase) // we are coming from $watch or link setup
-                        return;                    
+                        return;       
+										if(!element.pickatime('picker')){
+											return;
+										}             
                     var select = element.pickatime('picker').get('select'); // selected date
-                    
-                    if (select) {                    
+
+                    if (select) {
                         scope.$apply(function() {                        
                             if (e.hasOwnProperty('clear')) {                            
                                 scope.pickATime = null;                            
