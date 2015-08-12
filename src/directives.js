@@ -98,6 +98,12 @@ angular.module('angular-datepicker', [])
 
                 var userOnSet = options.onSet;
 
+                function onOpen(e) {
+                    element.pickatime('picker').set('select', element.val(), {
+                        format: options.format
+                    });
+                }
+
                 function onSet(e) {
                     if (typeof userOnSet === 'function') {
                         userOnSet.apply(this, arguments);
@@ -148,7 +154,8 @@ angular.module('angular-datepicker', [])
                     }, 500);
                 }
 
-                element.pickatime(angular.extend(options, {                
+                element.pickatime(angular.extend(options, {      
+                    onOpen: onOpen,
                     onSet: onSet,
                     onClose: onClose,
                     container: document.body            
