@@ -325,7 +325,7 @@ DatePicker.prototype.navigate = function( type, value, options ) {
         safety = 100*/
 
 
-    if ( isTargetArray || isTargetObject ) {
+    if ( (isTargetArray || isTargetObject) && (options && options.nav) ) {
 
         if ( isTargetObject ) {
             targetYear = value.year
@@ -942,7 +942,7 @@ DatePicker.prototype.activate = function( type, datesToEnable ) {
  * Create a string for the nodes in the picker.
  */
 DatePicker.prototype.nodes = function( isOpen ) {
-	
+
     var
         calendar = this,
         settings = calendar.settings,
@@ -1277,6 +1277,3 @@ Picker.extend( 'pickadate', DatePicker )
 
 
 }));
-
-
-
